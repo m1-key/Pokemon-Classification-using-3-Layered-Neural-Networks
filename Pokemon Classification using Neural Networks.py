@@ -2,7 +2,12 @@
 # coding: utf-8
 
 # # POKEMON
-
+"""Important libraries have been imported with their use defined below.
+   1- Path is imported to traverse the directories.
+   2- image is imported to read the image and to do image related stuffs.
+   3- pyplot is imported to draw the image , graph using its functionality.
+   4- numpy is imported to do mathematical stuffs.
+   5- shuffle is imported to shuffle the data keeping the data relation of the given two arrays."""
 
 import os
 from pathlib import Path
@@ -11,14 +16,24 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.utils import shuffle
 
-
 p = Path("D:\Dataset")
+# glob is used to to list down all the folders/items present in the directory 'p' , it takes a regular expression as an arguement.
+# here * means all the items in the directory 'p'.
 directories = p.glob("*")
 
+# here a list 'pok_data' is created to store the images as an numpy array.
 pok_data = []
+
+# here a list 'pok_name' is created to store the name of the pokemon corresponding to the image stored in the above list.
 pok_name = []
+
+# each pokemon is given a label by using dictionary.
 label_dic = {"Bulbasaur":0,"Meowth":1,"Pikachu":2}
+
+#reverse of above is created as we will need this to map the labels to the pokemon.
 label_to_pok_dic = {0:"Bulbasaur",1:"Meowth",2:"Pikachu"}
+
+
 for folder in directories:
     label = label_dic[str(folder).split('\\')[-1]]
     count = 0
